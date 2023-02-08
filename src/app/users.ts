@@ -5,5 +5,4 @@ export interface User{
     email: string;
     mobileNumber: string;
     userType: string
-
 }
