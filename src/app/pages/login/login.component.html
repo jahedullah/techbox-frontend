@@ -1,1 +1,49 @@
-<p>login works!</p>
+<p>login page</p>
+<div class="bootstrap-wrapper">
+    <div class = "container" style="margin-top: 200px;">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                    <mat-card-header>
+                        <div class="container text-center">
+                            <img src="../../../assets/login.png" width="80" height="80"/>
+                        </div> 
+        
+                        
+                    </mat-card-header>
+                    <h1 class="text-center">Login</h1>
+
+                <form>
+                    <mat-card-content>
+                      <mat-form-field class = "full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input 
+                        required
+                        matInput placeholder="Enter Here" />
+                        <mat-hint>valid email</mat-hint>
+                      </mat-form-field>
+
+                      <mat-form-field class = "full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input 
+                        required
+                        matInput placeholder="Enter Here" />
+                      </mat-form-field>
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                      <div class="container text-center">
+                        <button mat-raised-button color="primary" style="margin-right: 20px;">Login</button>
+                        <button mat-raised-button color="warn">Reset</button>
+                      </div>
+                    </mat-card-actions>
+                      
+                      
+                    
+                </form>
+            </mat-card>
+                
+            </div>
+        </div>
+    </div>
+</div>
