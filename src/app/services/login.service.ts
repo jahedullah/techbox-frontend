@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 
@@ -7,12 +7,27 @@ import { environment } from '../environments/environment';
 })
 export class LoginService {
 
+
+
   constructor(private http : HttpClient) { }
+
+  httpOptions = {
+    headers : new HttpHeaders({
+      'Content-Type' : 'application/json'
+    }),
+    withCredentials : true
+  }
+  //get the current logged in User
+  public getCurrentUser() {
+    return this.http.get(`${environment.apiBaseUrl}/current-user`, this.httpOptions);
+    
+  }
+
 
   //generate token by loggin in the user
   public generateToken(loginData: any) {
 
-    return this.http.post(`${environment.apiBaseUrl}/login`, loginData)
+    return this.http.post(`${environment.apiBaseUrl}/login`, loginData, this.httpOptions)
 
   }
 

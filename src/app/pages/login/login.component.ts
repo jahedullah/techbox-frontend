@@ -40,7 +40,20 @@ export class LoginComponent implements OnInit{
     this.login.generateToken(this.loginData).subscribe(
       (data: any) =>{
         console.log('success');
-        console.log(data);
+        console.log(data); 
+
+        //login
+        this.login.loginUser(data.accessToken)
+
+        this.login.getCurrentUser().subscribe(
+          (user: any) => {
+            this.login.setUser(user);
+            console.log(user);
+
+            //redirect ...if User: User-DashBoard
+            //redirect ...if Admin: Admin-DashBoard
+          }
+        );
       },
       (error) => {
         console.log('Error !');
