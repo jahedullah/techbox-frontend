@@ -48,7 +48,7 @@ export class LoginService {
   }
 
   //isLogout: remove token from local Storage
-  logout(){
+  public logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     return true;

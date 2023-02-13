@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Route, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit{
     email : '',
     password: ''
   }
-  constructor(private snack: MatSnackBar, private login : LoginService) {
+  constructor(private snack: MatSnackBar, private login : LoginService, private router: Router) {
 
   }
   
@@ -53,9 +54,11 @@ export class LoginComponent implements OnInit{
             //redirect ...if User: User-DashBoard
             //redirect ...if Admin: Admin-DashBoard
             if(userType == 'user'){
-              window.location.href = '/user-dashboard'
+              // window.location.href = '/user-dashboard'
+              this.router.navigate(['user-dashboard'])
             } else if(userType == 'admin'){
-              window.location.href = '/admin-dashboard'
+              // window.location.href = '/admin-dashboard'
+              this.router.navigate(['admin-dashboard'])
             }else{
               this.login.logout();
             }
