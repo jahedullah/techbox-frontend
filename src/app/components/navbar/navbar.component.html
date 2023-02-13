@@ -2,21 +2,23 @@
     <mat-toolbar color="primary">
       <a
       [routerLink]="['']" 
-      mat-icon-button class="example-icon" 
-      aria-label="Example icon-button with menu icon">
+      mat-raised-button
+      aria-label="Example icon-button with menu icon"
+      style="margin-right: 20px;">
         <mat-icon>home</mat-icon>
       </a>
 
       <button 
-      mat-icon-button class="example-icon" 
-      aria-label="Example icon-button with menu icon">
+      mat-raised-button
+      aria-label="Example icon-button with menu icon"
+      style="margin-right: 20px;">
         <mat-icon>inventory_2</mat-icon>
       </button>
 
       <a
       *ngIf="login.isLoggedIn()"
       
-      mat-icon-button class="example-icon favorite-icon" 
+      mat-raised-button
       aria-label="Example icon-button with heart icon">
         <mat-icon>checklist</mat-icon>
       </a>
@@ -25,16 +27,18 @@
       <a
       *ngIf="!login.isLoggedIn()"
       [routerLink]="['/login']"
-      mat-icon-button class="example-icon favorite-icon" 
-      aria-label="Example icon-button with heart icon">
+      mat-raised-button
+      aria-label="Example icon-button with heart icon"
+      style="margin-right: 20px;">
         <mat-icon>login</mat-icon>
       </a>
 
       <a
       *ngIf="!login.isLoggedIn()"
       [routerLink]="['/signup']"
-      mat-icon-button class="example-icon" 
-      aria-label="Example icon-button with share icon">
+      mat-raised-button
+      aria-label="Example icon-button with share icon"
+      style="margin-right: 20px;">
         <mat-icon>app_registration</mat-icon>
       </a>
 
@@ -42,8 +46,10 @@
       (click) = "logout()"
       *ngIf="login.isLoggedIn()"
       [routerLink]="['/signup']"
-      mat-icon-button class="example-icon" 
-      aria-label="Example icon-button with share icon">
+      mat-raised-button
+      color="warn"
+      aria-label="Example icon-button with share icon"
+      style="margin-right: 20px;">
         <mat-icon>logout</mat-icon>
       </a>
 
