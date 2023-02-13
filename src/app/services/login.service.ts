@@ -75,5 +75,12 @@ export class LoginService {
     }
   }
 
+  //get UserRole
+  public getUserRole() {
+    let user = this.getUser()
+    return user.userType;
+
+  }
+
   //get user role
 }

@@ -49,15 +49,27 @@ export class LoginComponent implements OnInit{
           (user: any) => {
             this.login.setUser(user);
             console.log(user);
-
+            const userType = user.userType
             //redirect ...if User: User-DashBoard
             //redirect ...if Admin: Admin-DashBoard
+            if(userType == 'user'){
+              window.location.href = '/user-dashboard'
+            } else if(userType == 'admin'){
+              window.location.href = '/admin-dashboard'
+            }else{
+              this.login.logout();
+            }
+
+ 
           }
         );
       },
       (error) => {
         console.log('Error !');
         console.log(error);
+        this.snack.open("Oops! Bad Credentials",'',{
+          duration: 1500
+        })
       }
     )
   }
