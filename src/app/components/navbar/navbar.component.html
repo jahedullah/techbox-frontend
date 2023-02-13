@@ -7,9 +7,19 @@
         <mat-icon>home</mat-icon>
       </a>
 
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <button 
+      mat-icon-button class="example-icon" 
+      aria-label="Example icon-button with menu icon">
         <mat-icon>inventory_2</mat-icon>
       </button>
+
+      <a
+      *ngIf="login.isLoggedIn()"
+      
+      mat-icon-button class="example-icon favorite-icon" 
+      aria-label="Example icon-button with heart icon">
+        <mat-icon>checklist</mat-icon>
+      </a>
       <!-- <span>Products</span> -->
       <span class="example-spacer"></span>
       <a

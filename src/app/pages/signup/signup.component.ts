@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit{
       (error) =>{
         //if-fails function
         console.log(error);
-        this.snack.open('something went wrong', '',{
+        this.snack.open(error.error.message, '',{
           duration: 1300
         })
       }
