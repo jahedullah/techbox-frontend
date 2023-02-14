@@ -17,18 +17,31 @@
                                 <h1 style="text-align: center;">{{product.price}}.00 BDT</h1>
                             </mat-card-content>
                             <mat-card-actions>
+                                <div>
 
                                 <button 
-                                style="margin-right: 10px;"
+                                style="margin-right: 10px; margin-bottom: 10px;"
                                 mat-raised-button>WISHLIST</button>
+
                                 <button
                                 *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
-                                mat-raised-button style="margin-right: 10px;">EDIT</button>
+                                mat-raised-button 
+                                color="primary"
+                                style="margin-right: 10px; margin-bottom: 10px;">PATCH</button>
+
                                 <button 
                                 *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
                                 mat-raised-button
-                                style="margin-right: 10px;">UPDATE</button>
+                                color="accent"
+                                style="margin-right: 10px; margin-bottom: 10px;">UPDATE</button>
 
+                                <button 
+                                *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
+                                mat-raised-button
+                                color="warn"
+                                style="margin-right: 10px; margin-bottom: 10px;">DELETE</button>
+
+                                </div>
                             </mat-card-actions>
                         </mat-card>
                     </div>
