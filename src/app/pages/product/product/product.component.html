@@ -22,10 +22,10 @@
                                 style="margin-right: 10px;"
                                 mat-raised-button>WISHLIST</button>
                                 <button
-                                *ngIf="login.isLoggedIn()" 
+                                *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
                                 mat-raised-button style="margin-right: 10px;">EDIT</button>
                                 <button 
-                                *ngIf="login.isLoggedIn()"
+                                *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
                                 mat-raised-button
                                 style="margin-right: 10px;">UPDATE</button>
 

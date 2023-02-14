@@ -13,13 +13,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductComponent implements OnInit{
   public products: Product[] = [];
 
+
   constructor(private productService: ProductService, private snack: MatSnackBar, public login: LoginService){
 
   }
   ngOnInit(): void {
     this.getProducts();
   }
-
+  
   public getProducts(): void {
     this.productService.getProduct().subscribe(
       (response: Product[]) => {
