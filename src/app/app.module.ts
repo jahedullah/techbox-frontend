@@ -20,6 +20,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ProductComponent } from './pages/product/product/product.component';
+import { ProductService } from './services/product.service';
+
 
 
 @NgModule({
@@ -31,7 +35,8 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     SignupComponent,
     HomeComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +50,10 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,12 +9,13 @@
         <mat-icon>home</mat-icon>
       </a>
 
-      <button 
+      <a 
+      [routerLink]="['/products']"
       mat-raised-button
       aria-label="Example icon-button with menu icon"
       style="margin-right: 20px;">
         <mat-icon>inventory_2</mat-icon>
-      </button>
+      </a>
 
       <button 
       *ngIf="login.isLoggedIn()"
