@@ -77,4 +77,11 @@ export class LoginComponent implements OnInit{
     )
   }
 
+  resetForm() {
+    this.loginData = {
+      email: '',
+      password: ''
+    };
+  }
+
 }

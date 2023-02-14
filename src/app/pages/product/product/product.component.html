@@ -29,8 +29,10 @@
                                 color="primary"
                                 style="margin-right: 10px; margin-bottom: 10px;">PATCH</button>
 
+
                                 <button 
                                 *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
+                                (click) = "openDialog()"
                                 mat-raised-button
                                 color="accent"
                                 style="margin-right: 10px; margin-bottom: 10px;">UPDATE</button>
@@ -40,6 +42,8 @@
                                 mat-raised-button
                                 color="warn"
                                 style="margin-right: 10px; margin-bottom: 10px;">DELETE</button>
+
+
 
                                 </div>
                             </mat-card-actions>

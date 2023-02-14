@@ -12,9 +12,6 @@
                     <!-- </mat-card-header> -->
                     <h1 class="text-center">Login</h1>
 
-                <form (ngSubmit)="formSubmit()">
-
-
                     <!-- <mat-card-content> -->
                       <mat-form-field class = "full-width" appearance="outline">
                         <mat-label>Email</mat-label>
@@ -39,14 +36,12 @@
 
                     <mat-card-actions>
                       <div class="container text-center">
-                        <button mat-raised-button color="primary" style="margin-right: 20px;">Login</button>
-                        <button mat-raised-button color="warn">Reset</button>
+                        <button mat-raised-button color="primary" style="margin-right: 20px;" (click)="formSubmit()">Login</button>
+                        <button mat-raised-button color="warn" (click)="resetForm()">Reset</button>
                       </div>
                     </mat-card-actions>
                       
                       
-                    
-                </form>
             <!-- </mat-card> -->
                 
             </div>

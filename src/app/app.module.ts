@@ -23,6 +23,8 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import {MatTabsModule} from '@angular/material/tabs';
 import { ProductComponent } from './pages/product/product/product.component';
 import { ProductService } from './services/product.service';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogProductUpdateComponent } from './components/dialog/productDialog/dialog-product-update/dialog-product-update.component';
 
 
 
@@ -36,7 +38,8 @@ import { ProductService } from './services/product.service';
     HomeComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
-    ProductComponent
+    ProductComponent,
+    DialogProductUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { ProductService } from './services/product.service';
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
