@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/product';
+import { LoginService } from 'src/app/services/login.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductComponent implements OnInit{
   public products: Product[] = [];
 
-  constructor(private productService: ProductService, private snack: MatSnackBar){
+  constructor(private productService: ProductService, private snack: MatSnackBar, public login: LoginService){
 
   }
   ngOnInit(): void {
