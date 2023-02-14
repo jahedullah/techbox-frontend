@@ -1,5 +1,29 @@
-<div *ngFor="let product of products">
-<div>
-    {{product.name}}
-</div>
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row flex-wrap justify-content-between">
+                    <div class="col-md-3 mb-4 card-container" *ngFor="let product of products">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title>{{product.name}}</mat-card-title>
+                                <mat-card-subtitle>{{product.vendor}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati cupiditate atque, aliquam minima voluptatem perspiciatis. Quas, illo! Error laudantium similique doloribus et blanditiis adipisci sapiente dolor exercitationem qui vero! Deserunt harum adipisci facere nobis.
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button>LIKE</button>
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
