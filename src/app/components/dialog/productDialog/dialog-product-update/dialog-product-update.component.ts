@@ -27,7 +27,7 @@ export class DialogProductUpdateComponent{
   }
 
   updateProduct(): void{
-    this.productService.updateProduct(this.productToUpdate, 29).subscribe(
+    this.productService.updateProduct(this.productToUpdate, this.data.productId).subscribe(
       (response: Product) => {
         this.snack.open(`Product updated successfully: ${response.name}`, '', {
           duration: 1300

@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit{
 
   openDialog(id: number){
     this.dialog.open(DialogProductUpdateComponent, {
-      data : {prouctId : id}
+      data : {productId : id}
     });
     // this.productId = id;
   }
