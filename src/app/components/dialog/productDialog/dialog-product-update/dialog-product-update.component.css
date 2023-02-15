@@ -1,3 +1,11 @@
 .example-full-width{
     width: 600px;
 }
+
+.example-is-valid {
+    border-color: green;
+  }
+  
+  .example-is-invalid {
+    border-color: red;
+  }

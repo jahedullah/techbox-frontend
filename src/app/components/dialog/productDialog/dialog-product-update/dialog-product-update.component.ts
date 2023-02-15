@@ -35,8 +35,10 @@ export class DialogProductUpdateComponent{
         
       },
       (error: HttpErrorResponse) => {
-        this.snack.open(error.message, '', {
-          duration: 1300
+        console.log(error.error);
+        const errorMsgs = Object.values(error.error).join(' | ');
+        this.snack.open(`Error updating product: ${errorMsgs}`, '', {
+          duration: 5000
         });
       }
     );

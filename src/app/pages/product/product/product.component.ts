@@ -38,20 +38,20 @@ export class ProductComponent implements OnInit{
       );
   }
 
-  updateProduct(product: ProductUpdate): void {
-    this.productService.updateProduct(product, this.productId).subscribe(
-      (response: Product) => {
-        this.snack.open(`Product updated successfully: ${response.name}`, '', {
-          duration: 2000
-        });
-      },
-      (error: HttpErrorResponse) => {
-        this.snack.open(error.message, '', {
-          duration: 2000
-        });
-      }
-    );
-  }
+  // updateProduct(product: ProductUpdate): void {
+  //   this.productService.updateProduct(product, this.productId).subscribe(
+  //     (response: Product) => {
+  //       this.snack.open(`Product updated successfully: ${response.name}`, '', {
+  //         duration: 2000
+  //       });
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       this.snack.open(error.message, '', {
+  //         duration: 2000
+  //       });
+  //     }
+  //   );
+  // }
 
 
   openDialog(id: number){
