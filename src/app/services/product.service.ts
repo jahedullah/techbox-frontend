@@ -34,6 +34,13 @@ export class ProductService {
     return this.http.put<Product>(`${environment.apiBaseUrl}/products/${id}`, product, this.httpOptions)
   }
 
+  public patchProduct(product: ProductAddAndUpdate, id: number): Observable<Product> {
+    console.log("updating")
+    return this.http.patch<Product>(`${environment.apiBaseUrl}/products/${id}`, product, this.httpOptions)
+  }
+
+
+
   public deleteProduct(id: number): Observable<Product> {
     return this.http.delete<Product>(`${environment.apiBaseUrl}/products`);
   }

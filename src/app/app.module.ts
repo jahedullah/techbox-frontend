@@ -25,7 +25,9 @@ import { ProductComponent } from './pages/product/product/product.component';
 import { ProductService } from './services/product.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogProductUpdateComponent } from './components/dialog/productDialog/dialog-product-update/dialog-product-update.component';
-import { DialogProductAddComponent } from './components/dialog/productDialog/dialog-product-add/dialog-product-add/dialog-product-add.component';
+import { DialogProductAddComponent } from './components/dialog/productDialog/dialog-product-add/dialog-product-add.component';
+import { DialogProductPatchComponent } from './components/dialog/productDialog/dialog-product-patch/dialog-product-patch.component';
+
 
 
 
@@ -41,7 +43,8 @@ import { DialogProductAddComponent } from './components/dialog/productDialog/dia
     UserDashboardComponent,
     ProductComponent,
     DialogProductUpdateComponent,
-    DialogProductAddComponent
+    DialogProductAddComponent,
+    DialogProductPatchComponent
   ],
   imports: [
     BrowserModule,

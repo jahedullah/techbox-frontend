@@ -2,7 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DialogProductAddComponent } from 'src/app/components/dialog/productDialog/dialog-product-add/dialog-product-add/dialog-product-add.component';
+import { DialogProductAddComponent } from 'src/app/components/dialog/productDialog/dialog-product-add/dialog-product-add.component';
+import { DialogProductPatchComponent } from 'src/app/components/dialog/productDialog/dialog-product-patch/dialog-product-patch.component';
 import { DialogProductUpdateComponent } from 'src/app/components/dialog/productDialog/dialog-product-update/dialog-product-update.component';
 import { Product } from 'src/app/models/product';
 import { LoginService } from 'src/app/services/login.service';
@@ -38,21 +39,6 @@ export class ProductComponent implements OnInit{
       );
   }
 
-  // updateProduct(product: ProductUpdate): void {
-  //   this.productService.updateProduct(product, this.productId).subscribe(
-  //     (response: Product) => {
-  //       this.snack.open(`Product updated successfully: ${response.name}`, '', {
-  //         duration: 2000
-  //       });
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       this.snack.open(error.message, '', {
-  //         duration: 2000
-  //       });
-  //     }
-  //   );
-  // }
-
 
   openUpdateDialog(id: number){
     this.dialog.open(DialogProductUpdateComponent, {
@@ -63,6 +49,13 @@ export class ProductComponent implements OnInit{
 
   openAddDialog(){
     this.dialog.open(DialogProductAddComponent);
+
+  }
+
+  openPatchDialog(id: number){
+    this.dialog.open(DialogProductPatchComponent, {
+      data : {productId : id}
+    });
 
   }
 
