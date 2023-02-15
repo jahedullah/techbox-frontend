@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex flex-row flex-wrap justify-content-between">
-                    <div class="col-md-3 mb-4 card-container" *ngFor="let product of products">
+                    <div class="col-md-2 mb-4 card-container" *ngFor="let product of products">
                         <mat-card class="example-card">
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image"></div>
@@ -20,28 +20,28 @@
                                 <div>
 
                                 <button 
-                                style="margin-right: 10px; margin-bottom: 10px;"
+                                style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;"
                                 mat-raised-button>WISHLIST</button>
 
                                 <button
                                 *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
                                 mat-raised-button 
                                 color="primary"
-                                style="margin-right: 10px; margin-bottom: 10px;">PATCH</button>
+                                style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;">PATCH</button>
 
 
                                 <button 
                                 *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
-                                (click) = "openDialog()"
+                                (click) = "openDialog(product.id)"
                                 mat-raised-button
                                 color="accent"
-                                style="margin-right: 10px; margin-bottom: 10px;">UPDATE</button>
+                                style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;">UPDATE</button>
 
                                 <button 
                                 *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
                                 mat-raised-button
                                 color="warn"
-                                style="margin-right: 10px; margin-bottom: 10px;">DELETE</button>
+                                style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;">DELETE</button>
 
 
 

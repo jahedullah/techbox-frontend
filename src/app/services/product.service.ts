@@ -1,13 +1,21 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 import { Product } from '../models/product';
+import { ProductUpdate } from '../models/productUpdate';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+
+  httpOptions = {
+    headers : new HttpHeaders({
+      'Content-Type' : 'application/json'
+    }),
+    withCredentials : true
+  }
 
   constructor(private http: HttpClient) { 
 
@@ -21,8 +29,9 @@ export class ProductService {
     return this.http.post<Product>(`${environment.apiBaseUrl}/products`, product)
   }
 
-  public updateProduct(product: Product, id: number): Observable<Product> {
-    return this.http.put<Product>(`${environment.apiBaseUrl}/products/id`, product)
+  public updateProduct(product: ProductUpdate, id: number): Observable<Product> {
+    console.log("updating")
+    return this.http.put<Product>(`${environment.apiBaseUrl}/products/${id}`, product, this.httpOptions)
   }
 
   public deleteProduct(id: number): Observable<Product> {
