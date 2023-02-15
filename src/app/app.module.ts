@@ -25,6 +25,7 @@ import { ProductComponent } from './pages/product/product/product.component';
 import { ProductService } from './services/product.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogProductUpdateComponent } from './components/dialog/productDialog/dialog-product-update/dialog-product-update.component';
+import { DialogProductAddComponent } from './components/dialog/productDialog/dialog-product-add/dialog-product-add/dialog-product-add.component';
 
 
 
@@ -39,7 +40,8 @@ import { DialogProductUpdateComponent } from './components/dialog/productDialog/
     AdminDashboardComponent,
     UserDashboardComponent,
     ProductComponent,
-    DialogProductUpdateComponent
+    DialogProductUpdateComponent,
+    DialogProductAddComponent
   ],
   imports: [
     BrowserModule,

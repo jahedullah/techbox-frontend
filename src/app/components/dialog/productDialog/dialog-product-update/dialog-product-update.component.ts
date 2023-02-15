@@ -3,8 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/product';
-import { ProductUpdate } from 'src/app/models/productUpdate';
-import { ProductComponent } from 'src/app/pages/product/product/product.component';
+import { ProductAddAndUpdate } from 'src/app/models/productAddAndUpdate';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -14,7 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class DialogProductUpdateComponent{
  
-  public productToUpdate: ProductUpdate = {
+  public productToUpdate: ProductAddAndUpdate = {
     name: '',
     vendor: '',
     price: 0,

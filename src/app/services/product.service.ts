@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 import { Product } from '../models/product';
-import { ProductUpdate } from '../models/productUpdate';
+import { ProductAddAndUpdate } from '../models/productAddAndUpdate';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +25,11 @@ export class ProductService {
     return this.http.get<Product[]>(`${environment.apiBaseUrl}/products`);
   }
 
-  public addProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${environment.apiBaseUrl}/products`, product)
+  public addProduct(product: ProductAddAndUpdate): Observable<Product> {
+    return this.http.post<Product>(`${environment.apiBaseUrl}/products`, product, this.httpOptions);
   }
 
-  public updateProduct(product: ProductUpdate, id: number): Observable<Product> {
+  public updateProduct(product: ProductAddAndUpdate, id: number): Observable<Product> {
     console.log("updating")
     return this.http.put<Product>(`${environment.apiBaseUrl}/products/${id}`, product, this.httpOptions)
   }

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="d-flex flex-row flex-wrap justify-content-between">
+                <div class="d-flex flex-row flex-wrap">
                     <div class="col-md-2 mb-4 card-container" *ngFor="let product of products">
                         <mat-card class="example-card">
                             <mat-card-header>
@@ -32,7 +32,7 @@
 
                                 <button 
                                 *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
-                                (click) = "openDialog(product.id)"
+                                (click) = "openUpdateDialog(product.id)"
                                 mat-raised-button
                                 color="accent"
                                 style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;">UPDATE</button>
@@ -49,6 +49,15 @@
                             </mat-card-actions>
                         </mat-card>
                     </div>
+
+
+                    <button mat-icon-button matTooltip="Basic" aria-label="Example icon-button with a heart icon"
+                    (click) = "openAddDialog()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+
+
+
                 </div>
             </div>
         </div>

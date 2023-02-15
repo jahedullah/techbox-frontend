@@ -2,9 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogProductAddComponent } from 'src/app/components/dialog/productDialog/dialog-product-add/dialog-product-add/dialog-product-add.component';
 import { DialogProductUpdateComponent } from 'src/app/components/dialog/productDialog/dialog-product-update/dialog-product-update.component';
 import { Product } from 'src/app/models/product';
-import { ProductUpdate } from 'src/app/models/productUpdate';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -54,11 +54,16 @@ export class ProductComponent implements OnInit{
   // }
 
 
-  openDialog(id: number){
+  openUpdateDialog(id: number){
     this.dialog.open(DialogProductUpdateComponent, {
       data : {productId : id}
     });
-    // this.productId = id;
+
+  }
+
+  openAddDialog(){
+    this.dialog.open(DialogProductAddComponent);
+
   }
 
 }

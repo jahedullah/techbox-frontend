@@ -1,4 +1,4 @@
-export interface ProductUpdate{
+export interface ProductAddAndUpdate{
     name: string;
     vendor: string;
     price: number;
