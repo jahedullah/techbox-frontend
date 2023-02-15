@@ -52,7 +52,10 @@
                     </div>
 
 
-                    <button mat-icon-button matTooltip="Basic" aria-label="Example icon-button with a heart icon"
+                    <button 
+                    *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' "
+                    mat-icon-button matTooltip="Basic" aria-label="Example icon-button with a heart icon"
+
                     (click) = "openAddDialog()">
                         <mat-icon>add</mat-icon>
                     </button>
