@@ -1,0 +1,38 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row flex-wrap">
+                    <div class="col-md-2 mb-4 card-container" *ngFor="let product of products">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title>{{product.name}}</mat-card-title>
+                                <mat-card-subtitle>{{product.vendor}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <div class="product-image-container">
+                            <img mat-card-image class="product-image" src={{product.imageUrl}} alt="photo of a {{product.name}}">
+                            </div>
+                            <mat-card-content>
+                                <h1 style="text-align: center;">{{product.price}}.00 BDT</h1>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <div>
+
+                                <button 
+                                style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;"
+                                mat-raised-button>REMOVE</button>
+
+
+
+                                </div>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductComponent } from './pages/product/product/product.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { UserProductsComponent } from './pages/user-products/user-products.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { UserGuard } from './services/user.guard';
@@ -40,6 +41,11 @@ const routes: Routes = [
 {
   path:'products',
   component: ProductComponent,
+  pathMatch: 'full'
+},
+{
+  path:'user-products',
+  component: UserProductsComponent,
   pathMatch: 'full'
 }
 

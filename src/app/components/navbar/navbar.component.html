@@ -27,7 +27,7 @@
 
       <a
       *ngIf="login.isLoggedIn()"
-      
+      [routerLink]= "['/user-products']"
       mat-raised-button
       aria-label="Example icon-button with heart icon">
         <mat-icon>checklist</mat-icon>
