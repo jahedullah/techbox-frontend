@@ -3,6 +3,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex flex-row flex-wrap">
+
+                    <ng-container *ngIf="productsLoaded; else loading">
+                        <ng-container *ngIf="products.length > 0; else noProducts">
+
                     <div class="col-md-2 mb-4 card-container" *ngFor="let product of products">
                         <mat-card class="example-card">
                             <mat-card-header>
@@ -61,6 +65,18 @@
                         <mat-icon>add</mat-icon>
                     </button>
 
+                </ng-container> 
+                    
+
+                    <ng-template #noProducts>
+                        <p>No products to show</p>
+                      </ng-template>
+                    </ng-container>
+
+                    <ng-template #loading>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    </ng-template>
+                    
 
 
                 </div>
@@ -68,3 +84,6 @@
         </div>
     </div>
 </div>
+
+
+

@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit{
   public products: Product[] = [];
   public product?: Product;
   public productId: number = 0;
+  public productsLoaded: boolean = false;
 
 
   constructor(private productService: ProductService, private snack: MatSnackBar, public loginService: LoginService, public dialog: MatDialog, private userService: UserService){
@@ -32,6 +33,7 @@ export class ProductComponent implements OnInit{
     this.productService.getProduct().subscribe(
       (response: Product[]) => {
         this.products = response;
+        this.productsLoaded = true;
       },
       (error: HttpErrorResponse) => {
         this.snack.open(error.message, '',{
