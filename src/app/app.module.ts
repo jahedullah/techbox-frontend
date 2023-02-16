@@ -28,6 +28,8 @@ import { DialogProductUpdateComponent } from './components/dialog/productDialog/
 import { DialogProductAddComponent } from './components/dialog/productDialog/dialog-product-add/dialog-product-add.component';
 import { DialogProductPatchComponent } from './components/dialog/productDialog/dialog-product-patch/dialog-product-patch.component';
 import { UserProductsComponent } from './pages/user-products/user-products.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -62,7 +64,9 @@ import { UserProductsComponent } from './pages/user-products/user-products.compo
     MatToolbarModule,
     MatIconModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

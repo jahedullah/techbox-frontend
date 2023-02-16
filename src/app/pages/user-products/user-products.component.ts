@@ -13,6 +13,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class UserProductsComponent implements OnInit{
   public products: Product[] = [];
   public userId: number = 0;
+  public productsLoaded: boolean = false;
 
   ngOnInit(): void {
     this.getUserProducts();
@@ -32,6 +33,7 @@ export class UserProductsComponent implements OnInit{
         this.userService.getUserProducts(this.userId).subscribe(
           (response: Product[]) => {
             this.products = response;
+            this.productsLoaded = true;
           },
           (error: HttpErrorResponse) => {
             this.snack.open(error.message, '', {

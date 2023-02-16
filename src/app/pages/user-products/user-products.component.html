@@ -3,34 +3,45 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex flex-row flex-wrap">
-                    <div class="col-md-2 mb-4 card-container" *ngFor="let product of products">
-                        <mat-card class="example-card">
-                            <mat-card-header>
-                                <div mat-card-avatar class="example-header-image"></div>
-                                <mat-card-title>{{product.name}}</mat-card-title>
-                                <mat-card-subtitle>{{product.vendor}}</mat-card-subtitle>
-                            </mat-card-header>
-                            <div class="product-image-container">
-                            <img mat-card-image class="product-image" src={{product.imageUrl}} alt="photo of a {{product.name}}">
-                            </div>
-                            <mat-card-content>
-                                <h1 style="text-align: center;">{{product.price}}.00 BDT</h1>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <div>
-
-                                <button 
-                                style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;"
-                                mat-raised-button>REMOVE</button>
-
-
-
+                    <ng-container *ngIf="productsLoaded; else loading">
+                      <ng-container *ngIf="products.length > 0; else noProducts">
+                        <div class="col-md-2 mb-4 card-container" *ngFor="let product of products">
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                    <div mat-card-avatar class="example-header-image"></div>
+                                    <mat-card-title>{{product.name}}</mat-card-title>
+                                    <mat-card-subtitle>{{product.vendor}}</mat-card-subtitle>
+                                </mat-card-header>
+                                <div class="product-image-container">
+                                <img mat-card-image class="product-image" src={{product.imageUrl}} alt="photo of a {{product.name}}">
                                 </div>
-                            </mat-card-actions>
-                        </mat-card>
-                    </div>
+                                <mat-card-content>
+                                    <h1 style="text-align: center;">{{product.price}}.00 BDT</h1>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <div>
+
+                                    <button 
+                                    style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;"
+                                    color = "warn"
+                                    mat-raised-button>REMOVE</button>
 
 
+
+                                    </div>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                      </ng-container>
+
+                      <ng-template #noProducts>
+                        <p>No products have been wishlisted yet</p>
+                      </ng-template>
+                    </ng-container>
+
+                    <ng-template #loading>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    </ng-template>
                 </div>
             </div>
         </div>
