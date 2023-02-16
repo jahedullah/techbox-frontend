@@ -35,4 +35,10 @@ export class UserService {
     return this.http.patch<Product>(`${environment.apiBaseUrl}/users/${userId}/products/${productId}` ,{}, this.httpOptions);
 
   }
+
+  public productRemoveFromWishList(userId:number , productId: number): Observable<Product>{
+    return this.http.delete<Product>(`${environment.apiBaseUrl}/users/${userId}/products/${productId}` , this.httpOptions);
+
+  }
+
 } 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -55,10 +55,10 @@ export class LoginComponent implements OnInit{
             //redirect ...if Admin: Admin-DashBoard
             if(userType == 'user'){
               // window.location.href = '/user-dashboard'
-              this.router.navigate(['user-dashboard'])
+              this.router.navigate(['user-dashboard']);
             } else if(userType == 'admin'){
               // window.location.href = '/admin-dashboard'
-              this.router.navigate(['admin-dashboard'])
+              this.router.navigate(['admin-dashboard']);
             }else{
               this.login.logout();
             }

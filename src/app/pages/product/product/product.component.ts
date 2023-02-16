@@ -71,6 +71,12 @@ export class ProductComponent implements OnInit{
         const userId = user.id;
         this.userService.productAddToWishList(userId, productId).subscribe(
           (response: Product) => {
+            this.snack.open("Added to wishlist", '',{
+              duration: 1300,
+              verticalPosition: 'top',
+              horizontalPosition: 'right'
+            
+            })
             this.product = response;
             console.log(this.product);
           },
