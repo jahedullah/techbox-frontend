@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogProductAddComponent } from 'src/app/components/dialog/productDialog/dialog-product-add/dialog-product-add.component';
+import { DialogProductDeleteComponent } from 'src/app/components/dialog/productDialog/dialog-product-delete/dialog-product-delete.component';
 import { DialogProductPatchComponent } from 'src/app/components/dialog/productDialog/dialog-product-patch/dialog-product-patch.component';
 import { DialogProductUpdateComponent } from 'src/app/components/dialog/productDialog/dialog-product-update/dialog-product-update.component';
 import { Product } from 'src/app/models/product';
@@ -63,6 +64,14 @@ export class ProductComponent implements OnInit{
 
   }
 
+  openDeleteDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogProductDeleteComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
   wishlistProduct(productId: number): void{
     this.loginService.getCurrentUser().subscribe(
       (user: any) => {
@@ -74,7 +83,8 @@ export class ProductComponent implements OnInit{
             this.snack.open("Added to wishlist", '',{
               duration: 1300,
               verticalPosition: 'top',
-              horizontalPosition: 'right'
+              horizontalPosition: 'right',
+              
             
             })
             this.product = response;

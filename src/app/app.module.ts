@@ -30,6 +30,7 @@ import { DialogProductPatchComponent } from './components/dialog/productDialog/d
 import { UserProductsComponent } from './pages/user-products/user-products.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DialogProductDeleteComponent } from './components/dialog/productDialog/dialog-product-delete/dialog-product-delete.component';
 
 
 
@@ -48,7 +49,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     DialogProductUpdateComponent,
     DialogProductAddComponent,
     DialogProductPatchComponent,
-    UserProductsComponent
+    UserProductsComponent,
+    DialogProductDeleteComponent
   ],
   imports: [
     BrowserModule,
