@@ -8,6 +8,7 @@ import { DialogProductUpdateComponent } from 'src/app/components/dialog/productD
 import { Product } from 'src/app/models/product';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductService } from 'src/app/services/product.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-product',
@@ -16,10 +17,11 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit{
   public products: Product[] = [];
+  public product?: Product;
   public productId: number = 0;
 
 
-  constructor(private productService: ProductService, private snack: MatSnackBar, public login: LoginService, public dialog: MatDialog){
+  constructor(private productService: ProductService, private snack: MatSnackBar, public loginService: LoginService, public dialog: MatDialog, private userService: UserService){
 
   }
   ngOnInit(): void {
@@ -56,6 +58,36 @@ export class ProductComponent implements OnInit{
     this.dialog.open(DialogProductPatchComponent, {
       data : {productId : id}
     });
+
+  }
+
+  wishlistProduct(productId: number): void{
+    this.loginService.getCurrentUser().subscribe(
+      (user: any) => {
+        console.log('success');
+        console.log(user.id); 
+        const userId = user.id;
+        this.userService.productAddToWishList(userId, productId).subscribe(
+          (response: Product) => {
+            this.product = response;
+            console.log(this.product);
+          },
+          (error) => {
+            // this.snack.open(error.message, '', {
+            //   duration: 1300
+            // });
+            console.log(error);
+          }
+        );
+      },
+      (error) => {
+        console.log('Error!');
+        console.log(error);
+        this.snack.open(error.message, '', {
+          duration: 1500
+        });
+      }
+    );
 
   }
 

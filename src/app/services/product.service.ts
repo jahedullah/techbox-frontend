@@ -30,12 +30,12 @@ export class ProductService {
   }
 
   public updateProduct(product: ProductAddAndUpdate, id: number): Observable<Product> {
-    console.log("updating")
+    console.log("updating product")
     return this.http.put<Product>(`${environment.apiBaseUrl}/products/${id}`, product, this.httpOptions)
   }
 
   public patchProduct(product: ProductAddAndUpdate, id: number): Observable<Product> {
-    console.log("updating")
+    console.log("patching product")
     return this.http.patch<Product>(`${environment.apiBaseUrl}/products/${id}`, product, this.httpOptions)
   }
 

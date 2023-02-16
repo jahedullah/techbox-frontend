@@ -29,4 +29,10 @@ export class UserService {
     console.log(userId)
     return this.http.get<Product[]>(`${environment.apiBaseUrl}/users/${userId}/products` , this.httpOptions);
   }
+
+  public productAddToWishList(userId:number , productId: number): Observable<Product>{
+    console.log("In api call");
+    return this.http.patch<Product>(`${environment.apiBaseUrl}/users/${userId}/products/${productId}` ,{}, this.httpOptions);
+
+  }
 } 

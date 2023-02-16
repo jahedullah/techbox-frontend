@@ -21,10 +21,11 @@
 
                                 <button 
                                 style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;"
+                                (click) = "wishlistProduct(product.id)"
                                 mat-raised-button>WISHLIST</button>
 
                                 <button
-                                *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
+                                *ngIf="loginService.isLoggedIn() && loginService.getUserRole() == 'admin' " 
                                 mat-raised-button 
                                 (click) = "openPatchDialog(product.id)"
                                 color="primary"
@@ -32,14 +33,14 @@
 
 
                                 <button 
-                                *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
+                                *ngIf="loginService.isLoggedIn() && loginService.getUserRole() == 'admin' " 
                                 (click) = "openUpdateDialog(product.id)"
                                 mat-raised-button
                                 color="accent"
                                 style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;">UPDATE</button>
 
                                 <button 
-                                *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' " 
+                                *ngIf="loginService.isLoggedIn() && loginService.getUserRole() == 'admin' " 
                                 mat-raised-button
                                 color="warn"
                                 style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;">DELETE</button>
@@ -53,7 +54,7 @@
 
 
                     <button 
-                    *ngIf="login.isLoggedIn() && login.getUserRole() == 'admin' "
+                    *ngIf="loginService.isLoggedIn() && loginService.getUserRole() == 'admin' "
                     mat-icon-button matTooltip="Basic" aria-label="Example icon-button with a heart icon"
 
                     (click) = "openAddDialog()">
