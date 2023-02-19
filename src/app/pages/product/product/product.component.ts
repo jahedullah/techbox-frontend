@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogProductAddComponent } from 'src/app/components/dialog/productDialog/dialog-product-add/dialog-product-add.component';
@@ -10,24 +10,48 @@ import { Product } from 'src/app/models/product';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductService } from 'src/app/services/product.service';
 import { UserService } from 'src/app/services/user.service';
+import { UserProductsComponent } from '../../user-products/user-products.component';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductComponent implements OnInit{
   public products: Product[] = [];
+  public userProducts: Product[] = [];
+  public userProductsObj: {[key : number] : boolean} = {};
   public product?: Product;
   public productId: number = 0;
   public productsLoaded: boolean = false;
-
 
   constructor(private productService: ProductService, private snack: MatSnackBar, public loginService: LoginService, public dialog: MatDialog, private userService: UserService){
 
   }
   ngOnInit(): void {
     this.getProducts();
+    let user = this.loginService.getUser();
+    if (user != null && user.hasOwnProperty('id')) {
+    let userId = user.id;
+    this.userService.getUserProducts(userId).subscribe(
+        (response: Product[]) => {
+          this.userProducts = response;
+          this.userProducts.forEach(product => {
+            this.userProductsObj[product.id] = true;
+          });
+          console.log(this.userProductsObj);
+        },
+        (error: HttpErrorResponse) => {
+          this.snack.open(error.message, '', {
+            duration: 1300
+          });
+        }
+      );
+
+      }
   }
   
   public getProducts(): void {
@@ -89,6 +113,7 @@ export class ProductComponent implements OnInit{
             })
             this.product = response;
             console.log(this.product);
+            this.userProductsObj[productId] = true;
           },
           (error) => {
             // this.snack.open(error.message, '', {
@@ -107,6 +132,10 @@ export class ProductComponent implements OnInit{
       }
     );
 
+  }
+
+  isProductInWishlist(productId: number): boolean {
+    return Boolean(this.userProductsObj[productId]);
   }
 
 }

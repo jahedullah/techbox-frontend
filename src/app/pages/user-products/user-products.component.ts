@@ -27,7 +27,7 @@ export class UserProductsComponent implements OnInit{
   }
 
 
-  public getUserProducts(): void {
+  public getUserProducts(): Product[] {
     this.loginService.getCurrentUser().subscribe(
       (user: any) => {
         console.log('success');
@@ -35,8 +35,9 @@ export class UserProductsComponent implements OnInit{
         const userId = user.id;
         this.userService.getUserProducts(userId).subscribe(
           (response: Product[]) => {
-            this.products = response;
             this.productsLoaded = true;
+            return this.products = response;
+            
           },
           (error: HttpErrorResponse) => {
             this.snack.open(error.message, '', {
@@ -53,6 +54,7 @@ export class UserProductsComponent implements OnInit{
         });
       }
     );
+    return this.products;
   }
 
   deleteUserProducts(productId: number): void {
