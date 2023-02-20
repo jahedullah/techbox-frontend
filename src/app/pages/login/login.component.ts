@@ -10,6 +10,8 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit{
 
+  public loginLoaded: boolean = false;
+
   loginData = {
     email : '',
     password: ''
@@ -19,7 +21,7 @@ export class LoginComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    
+    this.loginLoaded = true;
   }
 
   formSubmit() {

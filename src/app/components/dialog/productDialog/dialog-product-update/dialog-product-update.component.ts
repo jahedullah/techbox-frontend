@@ -12,21 +12,22 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./dialog-product-update.component.css']
 })
 export class DialogProductUpdateComponent{
+
  
   public productToUpdate: ProductAddAndUpdate = {
     name: '',
     vendor: '',
-    price: 0,
+    price: null,
     imageUrl: ''
   };
   
-  constructor(private snack: MatSnackBar,private productService: ProductService, @Inject(MAT_DIALOG_DATA) public data: { productId: number }){
+  constructor(private snack: MatSnackBar,private productService: ProductService, @Inject(MAT_DIALOG_DATA) public data: { product : Product}){
 
 
   }
 
   updateProduct(): void{
-    this.productService.updateProduct(this.productToUpdate, this.data.productId).subscribe(
+    this.productService.updateProduct(this.productToUpdate, this.data.product.id).subscribe(
       (response: Product) => {
         this.snack.open(`Product updated successfully: ${response.name}`, '', {
           duration: 1300

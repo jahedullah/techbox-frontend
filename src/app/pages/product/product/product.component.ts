@@ -69,9 +69,9 @@ export class ProductComponent implements OnInit{
   }
 
 
-  openUpdateDialog(id: number){
+  openUpdateDialog(product: Product){
     this.dialog.open(DialogProductUpdateComponent, {
-      data : {productId : id}
+      data : {product: product}
     });
 
   }

@@ -10,7 +10,7 @@
     class="example-full-width">
       <mat-label>Product name</mat-label>
       <input type="name" matInput
-             placeholder="Ex. Samsung S21"
+             placeholder={{this.data.product.name}}
              [(ngModel)] = "productToUpdate.name"
              [ngClass]="{'example-is-valid': name.valid && (name.dirty || name.touched),
                          'example-is-invalid': name.invalid && (name.dirty || name.touched)}"
@@ -31,7 +31,7 @@
     class="example-full-width">
       <mat-label>Product vendor</mat-label>
       <input type="email" matInput
-             placeholder="Ex. Samsung"
+             placeholder={{this.data.product.vendor}}
              [(ngModel)] = "productToUpdate.vendor"
                         name = "vendor" #vendor 
                         required
@@ -48,7 +48,7 @@
     class="example-full-width">
       <mat-label>Product price</mat-label>
       <input type="email" matInput
-             placeholder="Ex. 20000"
+             placeholder={{this.data.product.price}}
              [(ngModel)] = "productToUpdate.price"
                         name = "price" #price
                         required>
@@ -64,7 +64,7 @@
     class="example-full-width">
       <mat-label>Product image url</mat-label>
       <input type="email" matInput
-             placeholder="Ex. https://adnoandoad/adanmpd"
+             placeholder={{this.data.product.imageUrl}}
              [(ngModel)] = "productToUpdate.imageUrl"
                         name = "imageUrl" #imageUrl
                         required>

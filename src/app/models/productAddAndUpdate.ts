@@ -1,6 +1,6 @@
 export interface ProductAddAndUpdate{
     name: string;
     vendor: string;
-    price: number;
+    price: number | null;
     imageUrl: string
 }

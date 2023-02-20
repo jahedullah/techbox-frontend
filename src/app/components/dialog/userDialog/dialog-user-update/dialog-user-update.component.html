@@ -95,5 +95,6 @@
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial 
   (click) = "updateUser()"
+  [disabled]="!firstName.value || !lastName.value || !email.value || !mobileNumber.value || !userType.value"
   >Update</button>
 </mat-dialog-actions>

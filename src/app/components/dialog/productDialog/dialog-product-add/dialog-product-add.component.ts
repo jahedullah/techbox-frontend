@@ -16,7 +16,7 @@ export class DialogProductAddComponent {
   public productToAdd: ProductAddAndUpdate = {
     name: '',
     vendor: '',
-    price: 0,
+    price: null,
     imageUrl: ''
   };
 
