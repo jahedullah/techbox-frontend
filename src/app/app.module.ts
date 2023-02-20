@@ -24,6 +24,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ProductComponent } from './pages/product/product/product.component';
 import { ProductService } from './services/product.service';
 import {MatDialogModule} from '@angular/material/dialog';
+
 import { DialogProductUpdateComponent } from './components/dialog/productDialog/dialog-product-update/dialog-product-update.component';
 import { DialogProductAddComponent } from './components/dialog/productDialog/dialog-product-add/dialog-product-add.component';
 import { DialogProductPatchComponent } from './components/dialog/productDialog/dialog-product-patch/dialog-product-patch.component';
@@ -31,6 +32,8 @@ import { UserProductsComponent } from './pages/user-products/user-products.compo
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DialogProductDeleteComponent } from './components/dialog/productDialog/dialog-product-delete/dialog-product-delete.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { DialogUserUpdateComponent } from './components/dialog/userDialog/dialog-user-update/dialog-user-update.component';
 
 
 
@@ -50,7 +53,10 @@ import { DialogProductDeleteComponent } from './components/dialog/productDialog/
     DialogProductAddComponent,
     DialogProductPatchComponent,
     UserProductsComponent,
-    DialogProductDeleteComponent
+    DialogProductDeleteComponent,
+    UserProfileComponent,
+    DialogUserUpdateComponent,
+
   ],
   imports: [
     BrowserModule,

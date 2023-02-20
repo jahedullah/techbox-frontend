@@ -17,13 +17,14 @@
         <mat-icon>inventory_2</mat-icon>
       </a>
 
-      <button 
+      <a
+      [routerLink]="['/user-profile']" 
       *ngIf="login.isLoggedIn()"
       mat-raised-button
       aria-label="Example icon-button with menu icon"
       style="margin-right: 20px;">
         <mat-icon>person</mat-icon>
-      </button>
+      </a>
 
       <a
       *ngIf="login.isLoggedIn()"

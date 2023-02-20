@@ -1,0 +1,62 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="bootstrap-wrapper">
+          <div class="container-fluid">
+            <div class="row">
+
+
+              <div class="col-md-4" style="margin-bottom: 2%; margin-top: 5%;">
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title style="font-size: 17px"
+                      >{{user?.firstName}} {{user?.lastName}}</mat-card-title
+                    >
+                    <mat-card-subtitle>{{user?.userType}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <div class="product-image-container">
+                    <img mat-card-image class="product-image" src="assets/default_profile.png" alt="photo of user">
+                  </div>
+                  <mat-card-content>
+                    <h1 style="text-align: center; font-size: 20px"></h1>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <div></div>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+
+              <div class="col-md-8" style="margin-bottom: 2%; margin-top: 5%;">
+                <div class="custom-card">
+                    <div class="custom-card-header">
+                      <h2>User Details</h2>
+                    </div>
+                    <div class="custom-card-body">
+                      <h4>Email: {{user?.email}}</h4>
+                      <h4>Mobile Number: {{user?.mobileNumber}}</h4>
+                    </div>
+                    <div class="custom-card-footer">
+                      <button mat-raised-button color="primary"
+                      (click)="openUpdateDialog(user)"
+                      >Update</button>
+
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>
+
+
+
+

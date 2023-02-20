@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 import { Product } from '../models/product';
+import { User } from '../models/user';
+import { UserUpdate } from '../models/userUpdate';
 import baseUrl from './helper';
 
 @Injectable({
@@ -23,6 +25,9 @@ export class UserService {
 
   public addUser(user: any) {
     return this.http.post(`${environment.apiBaseUrl }/users`, user);
+  }
+  public updateUser(user: UserUpdate, userId: number): Observable<User>{
+    return this.http.put<User>(`${environment.apiBaseUrl}/users/${userId}`, user, this.httpOptions);
   }
 
   public getUserProducts(userId: number): Observable<Product[]> {

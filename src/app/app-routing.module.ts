@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProductComponent } from './pages/product/product/product.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserProductsComponent } from './pages/user-products/user-products.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { UserGuard } from './services/user.guard';
@@ -47,7 +48,13 @@ const routes: Routes = [
   path:'user-products',
   component: UserProductsComponent,
   pathMatch: 'full'
+},
+{
+  path:'user-profile',
+  component: UserProfileComponent,
+  pathMatch: 'full'
 }
+
 
 ];
 
