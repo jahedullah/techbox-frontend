@@ -28,7 +28,12 @@ export class DialogProductPatchComponent {
   patchProduct(): void {
     this.productService.patchProduct(this.productToAdd, this.data.product.id).subscribe(
       (response: Product) => {
-        Swal.fire('Success', 'product has been added ' + response.id, 'success');
+        this.data.product.id = response.id;
+        this.data.product.name = response.name;
+        this.data.product.vendor = response.vendor;
+        this.data.product.price = response.price;
+        this.data.product.imageUrl = response.imageUrl;
+        Swal.fire('Success', 'product has been patched ' + response.id, 'success');
         
       },
       (error: HttpErrorResponse) => {
