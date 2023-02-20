@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-dialog-product-delete',
@@ -8,8 +12,25 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DialogProductDeleteComponent {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private snack: MatSnackBar, public dialog: MatDialog, private productService: ProductService, @Inject(MAT_DIALOG_DATA) public data : {productId: number}) {}
 
-
+  deleteProduct(){
+    console.log("deleting");
+    this.productService.deleteProduct(this.data.productId).subscribe(
+      (response: Product) => {
+        this.snack.open(`Product deleted successfully: ${response.name}`, '', {
+          duration: 1300
+        });
+        
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.error);
+        const errorMsgs = Object.values(error.error).join(' | ');
+        this.snack.open(`Error updating product: ${errorMsgs}`, '', {
+          duration: 5000
+        });
+      }
+    );;
+  }
 
 }

@@ -88,8 +88,9 @@ export class ProductComponent implements OnInit{
 
   }
 
-  openDeleteDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  openDeleteDialog(productId: number, enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(DialogProductDeleteComponent, {
+      data: {productId: productId},
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,

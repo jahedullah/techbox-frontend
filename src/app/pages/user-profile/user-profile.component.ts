@@ -10,13 +10,19 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit{
+  public userProfileLoaded: boolean = false;
   public user?: User;
   constructor(private loginService: LoginService, private dialog: MatDialog){
 
   }
 
   ngOnInit(): void {
-    this.user = this.loginService.getUser();
+
+    setTimeout(() => {
+      this.user = this.loginService.getUser();
+      this.userProfileLoaded = true;
+    }, 300)
+    
   }
 
   openUpdateDialog(user: any){

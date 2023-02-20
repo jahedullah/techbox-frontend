@@ -41,8 +41,9 @@ export class ProductService {
 
 
 
-  public deleteProduct(id: number): Observable<Product> {
-    return this.http.delete<Product>(`${environment.apiBaseUrl}/products`);
+  public deleteProduct(id: number):Observable<Product> {
+    console.log(id);
+    return this.http.delete<Product>(`${environment.apiBaseUrl}/products/${id}`,  this.httpOptions);
   }
 
 }
