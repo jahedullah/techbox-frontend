@@ -4,6 +4,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dialog-product-delete',
@@ -18,10 +19,7 @@ export class DialogProductDeleteComponent {
     console.log("deleting");
     this.productService.deleteProduct(this.data.productId).subscribe(
       (response: Product) => {
-        this.snack.open(`Product deleted successfully: ${response.name}`, '', {
-          duration: 1300
-        });
-        
+        Swal.fire('Success', 'product has been added ' + response.id, 'success')
       },
       (error: HttpErrorResponse) => {
         console.log(error.error);
