@@ -81,9 +81,9 @@ export class ProductComponent implements OnInit{
 
   }
 
-  openPatchDialog(id: number){
+  openPatchDialog(product: Product){
     this.dialog.open(DialogProductPatchComponent, {
-      data : {productId : id}
+      data : {product : product}
     });
 
   }

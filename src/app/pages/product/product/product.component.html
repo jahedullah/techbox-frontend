@@ -34,7 +34,7 @@
                                 <button
                                 *ngIf="loginService.isLoggedIn() && loginService.getUserRole() == 'admin' " 
                                 mat-raised-button 
-                                (click) = "openPatchDialog(product.id)"
+                                (click) = "openPatchDialog(product)"
                                 color="primary"
                                 style="font-size: 9px; height: 18px; width: 20px; margin-right: 10px; margin-bottom: 10px;">PATCH</button>
 
