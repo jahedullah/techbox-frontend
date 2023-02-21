@@ -1,6 +1,6 @@
 .product-image{
-    width: 75%;
-    height: 120%;
+    width: 40%;
+    height: 85%;
 
 }
 
@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px; /* Optional: set a fixed height for the image container */
+     /* Optional: set a fixed height for the image container */
   }
 
 /* .col-md-4,
