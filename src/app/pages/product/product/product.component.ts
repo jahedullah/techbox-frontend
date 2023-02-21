@@ -89,11 +89,24 @@ export class ProductComponent implements OnInit{
   }
 
   openDeleteDialog(productId: number, enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogProductDeleteComponent, {
+    const dialogRef = this.dialog.open(DialogProductDeleteComponent, {
       data: {productId: productId},
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      console.log("result ki?")
+      if (result != undefined && result == "deleted") {
+        console.log("dialogref closed")
+        const index = this.products.findIndex(p => p.id === productId);
+        if (index !== -1) {
+          // Remove the product from the products array
+          this.products.splice(index, 1);
+        }
+      }
     });
   }
 

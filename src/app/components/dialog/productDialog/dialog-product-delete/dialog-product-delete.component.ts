@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -13,13 +13,14 @@ import Swal from 'sweetalert2';
 })
 export class DialogProductDeleteComponent {
 
-  constructor(private snack: MatSnackBar, public dialog: MatDialog, private productService: ProductService, @Inject(MAT_DIALOG_DATA) public data : {productId: number}) {}
+  constructor(private snack: MatSnackBar, public dialog: MatDialog, private dialogRef: MatDialogRef<DialogProductDeleteComponent> , private productService: ProductService, @Inject(MAT_DIALOG_DATA) public data : {productId: number}) {}
 
   deleteProduct(){
     console.log("deleting");
     this.productService.deleteProduct(this.data.productId).subscribe(
       (response: Product) => {
-        Swal.fire('Success', 'product has been added ' + response.id, 'success')
+        Swal.fire('Success', 'product has been deleted ' + response.id, 'success');
+        this.dialogRef.close("deleted");
       },
       (error: HttpErrorResponse) => {
         console.log(error.error);
