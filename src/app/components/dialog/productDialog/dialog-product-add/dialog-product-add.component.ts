@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/product';
 import { ProductAddAndUpdate } from 'src/app/models/productAddAndUpdate';
@@ -20,7 +21,7 @@ export class DialogProductAddComponent {
     imageUrl: ''
   };
 
-  constructor(private snack: MatSnackBar, private productService: ProductService) {
+  constructor(private snack: MatSnackBar, private dialogRef: MatDialogRef<DialogProductAddComponent>, private productService: ProductService) {
      
   }
 
@@ -28,6 +29,7 @@ export class DialogProductAddComponent {
     this.productService.addProduct(this.productToAdd).subscribe(
       (response: Product) => {
         Swal.fire('Success', 'product has been added ' + response.id, 'success');
+        this.dialogRef.close();
         
       },
       (error: HttpErrorResponse) => {

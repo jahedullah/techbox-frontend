@@ -10,7 +10,7 @@ import { Product } from 'src/app/models/product';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductService } from 'src/app/services/product.service';
 import { UserService } from 'src/app/services/user.service';
-import { UserProductsComponent } from '../../user-products/user-products.component';
+
 
 @Component({
   selector: 'app-product',
@@ -77,7 +77,16 @@ export class ProductComponent implements OnInit{
   }
 
   openAddDialog(){
-    this.dialog.open(DialogProductAddComponent);
+    const dialogRef = this.dialog.open(DialogProductAddComponent);
+
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log(result);
+      console.log("add kore disi")
+      if(result){
+        this.getProducts();
+      }
+    }
+  );
 
   }
 
