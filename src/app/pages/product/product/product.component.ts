@@ -10,6 +10,7 @@ import { Product } from 'src/app/models/product';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductService } from 'src/app/services/product.service';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -120,6 +121,7 @@ export class ProductComponent implements OnInit{
   }
 
   wishlistProduct(productId: number): void{
+    if(this.loginService.isLoggedIn()){
     this.loginService.getCurrentUser().subscribe(
       (user: any) => {
         console.log('success');
@@ -154,6 +156,9 @@ export class ProductComponent implements OnInit{
         });
       }
     );
+    }else{
+      Swal.fire("You must log in.")
+    }
 
   }
 
