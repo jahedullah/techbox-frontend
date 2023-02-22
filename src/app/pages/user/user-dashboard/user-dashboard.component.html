@@ -1,1 +1,18 @@
-<p>user-dashboard works!</p>
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex flex-row flex-wrap">
+            <ng-container *ngIf="userDashBoardLoaded; else loading">
+              <p>user dashboard works</p>
+              
+            </ng-container>
+            <ng-template #loading>
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class UserDashboardComponent {
 
+  public userDashBoardLoaded: boolean = false;
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.userDashBoardLoaded = true;
+    }, 500);
+    
+  }
+
 }
