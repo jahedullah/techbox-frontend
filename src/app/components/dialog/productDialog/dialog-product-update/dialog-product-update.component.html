@@ -14,10 +14,10 @@
              [(ngModel)] = "productToUpdate.name"
              [ngClass]="{'example-is-valid': name.valid && (name.dirty || name.touched),
                          'example-is-invalid': name.invalid && (name.dirty || name.touched)}"
-              name = "name" 
+            name = "name" 
             #name="ngModel"
             required
-
+            (keyup.enter)="onSubmit()"
             minlength="3">
             <!-- <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
               <span *ngIf="name.errors.required">Name is required</span>
@@ -36,7 +36,7 @@
              [(ngModel)] = "productToUpdate.vendor"
                         name = "vendor" #vendor 
                         required
-
+                        (keyup.enter)="onSubmit()"
                         minlength="1">
       <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         Please enter a valid email address
@@ -53,6 +53,7 @@
              placeholder={{this.data.product.price}}
              [(ngModel)] = "productToUpdate.price"
                         name = "price" #price
+                        (keyup.enter)="onSubmit()"
                         required>
       <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         Please enter a valid email address
@@ -69,6 +70,7 @@
              placeholder={{this.data.product.imageUrl}}
              [(ngModel)] = "productToUpdate.imageUrl"
                         name = "imageUrl" #imageUrl
+                        (keyup.enter)="onSubmit()"
                         required>
       <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         Please enter a valid email address
@@ -80,8 +82,8 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateProduct()"
-  >Patch</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateProduct()"
-  [disabled]="!name.value || !vendor.value || !price.value || !imageUrl.value">Update</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="patchProduct()"
+  >Patch</button> -->
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateProduct()" type="submit"
+  >Update</button>
 </mat-dialog-actions>
