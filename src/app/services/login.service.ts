@@ -39,12 +39,14 @@ export class LoginService {
   //login user: set token in localStorage
   public loginUser(token: any){
     this.authService.setToken(token);
+    localStorage.setItem('token', token);
     return true;
   }
 
   //isLogin: user is logged in or not
   public isLoggedIn() {
-    let tokenStr = this.authService.getToken();
+    // let tokenStr = this.authService.getToken();
+    let tokenStr = localStorage.getItem('token');
     if(tokenStr ==  undefined || tokenStr == '' || tokenStr == null){
       return false;
     } else {
@@ -55,24 +57,29 @@ export class LoginService {
   //isLogout: remove token from local Storage
   public logout(){
     this.authService.setToken(null);
-    this.authService.setUserData(null)
+    this.authService.setUserData(null);
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     return true;
   }
 
   //get Token : if needed in case.
   public getToken() {
-    return this.authService.getToken();
+    // return this.authService.getToken();
+    return localStorage.getItem('token');
   }
 
   //set userDetail
   public setUser(user: any) {
-    // localStorage.setItem('user', JSON.stringify(user));
-    this.authService.setUserData(JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
+    // this.authService.setUserData(JSON.stringify(user));
   }
 
   //getUser
   public getUser() {
-    let userStr = this.authService.getUserData();
+    // let userStr = this.authService.getUserData();
+    let userStr = localStorage.getItem('user');
     if (userStr != null){
       return JSON.parse(userStr);
     }else {
@@ -85,8 +92,7 @@ export class LoginService {
   public getUserRole() {
     let user = this.getUser();
     return user.userType;
-
   }
 
-  //get user role
+
 }
