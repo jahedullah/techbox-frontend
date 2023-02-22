@@ -9,6 +9,7 @@ import { UserProductsComponent } from './pages/user-products/user-products.compo
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
+import { LoginGuard } from './services/login.guard';
 import { UserGuard } from './services/user.guard';
 
 const routes: Routes = [
@@ -42,17 +43,20 @@ const routes: Routes = [
 {
   path:'products',
   component: ProductComponent,
-  pathMatch: 'full'
+  pathMatch: 'full',
+  canActivate: [LoginGuard]
 },
 {
   path:'user-products',
   component: UserProductsComponent,
-  pathMatch: 'full'
+  pathMatch: 'full',
+  canActivate: [LoginGuard]
 },
 {
   path:'user-profile',
   component: UserProfileComponent,
-  pathMatch: 'full'
+  pathMatch: 'full',
+  canActivate: [LoginGuard]
 }
 
 

@@ -8,7 +8,7 @@
                         <ng-container *ngIf="products.length > 0; else noProducts">
 
                     <div class="col-md-2 mb-5 card-container" *ngFor="let product of products">
-                        <mat-card class="example-card">
+                        <mat-card class="example-card" appMaterialElevation>
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image"></div>
                                 <mat-card-title style="font-size: 17px;">{{product.name}}</mat-card-title>
