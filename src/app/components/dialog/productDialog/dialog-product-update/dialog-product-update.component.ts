@@ -78,31 +78,6 @@ export class DialogProductUpdateComponent{
         );
       }
   }
-  // patchProduct(): void{
-    
-
-
-  //     this.productService.patchProduct(this.productToUpdate, this.data.product.id).subscribe(
-  //       (response: Product) => {
-  //         this.data.product.id = response.id;
-  //         this.data.product.name = response.name;
-  //         this.data.product.vendor = response.vendor;
-  //         this.data.product.price = response.price;
-  //         this.data.product.imageUrl = response.imageUrl;
-  //         Swal.fire('Success', 'product has been patched ' + response.id, 'success');
-          
-  //         this.dialogref.close();
-          
-  //       },
-  //       (error: HttpErrorResponse) => {
-  //         console.log(error.error);
-  //         const errorMsgs = Object.values(error.error).join(' | ');
-  //         this.snack.open(`Error updating product: ${errorMsgs}`, '', {
-  //           duration: 5000
-  //         });
-  //       }
-  //     );
-  //   }
 
     onSubmit(){
       this.updateProduct();

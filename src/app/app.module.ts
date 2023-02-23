@@ -34,6 +34,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DialogProductDeleteComponent } from './components/dialog/productDialog/dialog-product-delete/dialog-product-delete.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { DialogUserUpdateComponent } from './components/dialog/userDialog/dialog-user-update/dialog-user-update.component';
+import { DialogUserUpdatePasswordComponent } from './components/dialog/userDialog/dialog-user-update-password/dialog-user-update-password.component';
 
 
 
@@ -56,6 +57,7 @@ import { DialogUserUpdateComponent } from './components/dialog/userDialog/dialog
     DialogProductDeleteComponent,
     UserProfileComponent,
     DialogUserUpdateComponent,
+    DialogUserUpdatePasswordComponent,
 
   ],
   imports: [

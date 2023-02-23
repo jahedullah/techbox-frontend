@@ -45,8 +45,7 @@ const routes: Routes = [
 {
   path:'products',
   component: ProductComponent,
-  pathMatch: 'full',
-  canActivate: [AuthGuard]
+  pathMatch: 'full'
 },
 {
   path:'user-products',

@@ -41,8 +41,11 @@
                     </div>
                     <div class="custom-card-footer">
                       <button mat-raised-button color="primary"
+                      (click)="openUpdatePasswordDialog(user?.id)"
+                      ><mat-icon>edit</mat-icon>Password</button>
+                      <button mat-raised-button color="primary"
                       (click)="openUpdateDialog(user)"
-                      >Update</button>
+                      ><mat-icon>update</mat-icon>Details</button>
 
                     </div>
                   </div>
