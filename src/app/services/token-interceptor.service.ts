@@ -1,5 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { catchError, Observable, tap, throwError, switchMap } from 'rxjs';
 import { environment } from '../environments/environment';
 import { AuthService } from './auth.service';
@@ -15,7 +16,7 @@ export class TokenInterceptorService implements HttpInterceptor{
     withCredentials : true
   }
 
-  constructor (private loginService : LoginService, private authService: AuthService){
+  constructor (private loginService : LoginService, private authService: AuthService, private router: Router){
 
   } 
 
@@ -36,6 +37,10 @@ export class TokenInterceptorService implements HttpInterceptor{
               switchMap((token: any) => {
                 this.authService.setAccessToken(token);
                 return next.handle(req);
+              }), catchError((error) => {
+                this.loginService.logout();
+                this.router.navigate(['login']);
+                return throwError(() => error);
               })
             );
             // return next.handle(req);
