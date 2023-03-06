@@ -4,17 +4,26 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  private token: string | null = null;
+  private accessToken: string | null = null;
+  private refreshToken: string | null = null;
   private userData: any | null = null;
 
   constructor() { }
 
-  setToken(token: string | null) {
-    this.token = token;
+  setAccessToken(token: string | null) {
+    this.accessToken = token;
   }
 
-  getToken() {
-    return this.token;
+  getAccessToken() {
+    return this.accessToken;
+  }
+
+  setRefreshToken(token: string | null) {
+    this.refreshToken = token;
+  }
+
+  getRefreshToken() {
+    return this.refreshToken;
   }
 
   setUserData(userData: any) {

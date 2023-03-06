@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit{
         console.log(data); 
 
         //login
-        this.login.loginUser(data.accessToken)
+        this.login.loginUser(data.accessToken, data.refreshToken)
 
         this.login.getCurrentUser().subscribe(
           (user: any) => {

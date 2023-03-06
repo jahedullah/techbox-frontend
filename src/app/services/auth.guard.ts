@@ -34,7 +34,7 @@ export class AuthGuard implements CanActivate{
       });
 
       console.log("auth guard can activate");
-      if (this.login.getToken()) {
+      if (this.login.getAccessToken()) {
         // If the auth token is present, return true to allow access to the route
         return true;
       } else {

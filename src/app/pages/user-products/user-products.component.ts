@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-user-products',
@@ -13,11 +14,20 @@ import { Location } from '@angular/common';
   styleUrls: ['./user-products.component.css']
 })
 export class UserProductsComponent implements OnInit{
+  public user: User = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    email: '',
+    mobileNumber: '',
+    userType: ''
+  };
   public products: Product[] = [];
   public product?: Product;
   public productsLoaded: boolean = false;
 
   ngOnInit(): void {
+    console.log("user-product onInit")
     this.getUserProducts();
   }
 
@@ -56,6 +66,28 @@ export class UserProductsComponent implements OnInit{
     );
     return this.products;
   }
+
+  // public getUserProducts(): Product[] {
+  //   this.user = this.loginService.getCurrentUser();
+  //   console.log('success');
+  //   console.log(this.user.id); 
+  //       this.userService.getUserProducts(this.user.id).subscribe(
+  //         (response: Product[]) => {
+  //           this.productsLoaded = true;
+  //           return this.products = response;
+            
+  //         },
+  //         (error: HttpErrorResponse) => {
+  //           this.snack.open(error.message, '', {
+  //             duration: 1300
+  //           });
+  //         });
+  //       console.log('Error!');
+  //       this.snack.open('Oops! No Users Found', '', {
+  //         duration: 1500
+  //       });
+  //   return this.products;
+  // }
 
   deleteUserProducts(productId: number): void {
     this.loginService.getCurrentUser().subscribe(

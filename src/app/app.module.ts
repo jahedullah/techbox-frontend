@@ -35,6 +35,7 @@ import { DialogProductDeleteComponent } from './components/dialog/productDialog/
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { DialogUserUpdateComponent } from './components/dialog/userDialog/dialog-user-update/dialog-user-update.component';
 import { DialogUserUpdatePasswordComponent } from './components/dialog/userDialog/dialog-user-update-password/dialog-user-update-password.component';
+import { tokenInterceptorProviders } from './services/token-interceptor.service';
 
 
 
@@ -78,7 +79,7 @@ import { DialogUserUpdatePasswordComponent } from './components/dialog/userDialo
     MatProgressSpinnerModule,
     MatProgressBarModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, tokenInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

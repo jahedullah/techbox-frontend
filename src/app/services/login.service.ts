@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of, throwError } from 'rxjs';
 import { environment } from '../environments/environment';
 import { User } from '../models/user';
 import { AuthService } from './auth.service';
@@ -8,9 +9,6 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class LoginService {
-
-  private token: string | null = null;
-  private user: any | null = null;
 
 
 
@@ -25,8 +23,22 @@ export class LoginService {
   //get the current logged in User
   public getCurrentUser() {
     return this.http.get(`${environment.apiBaseUrl}/current-user`, this.httpOptions);
+
+    // const user = this.getUser();
+    // if (user) {
+    // // Create an observable that emits the user object
+    // return of(user);
+    // } else {
+    //   // Handle the case where the user is not found
+    //   this.logout();
+    //   return throwError('User not found');
+    // }
     
   }
+
+  // public getCurrentUserApi(){
+  //   return this.http.get(`${environment.apiBaseUrl}/current-user`, this.httpOptions);
+  // }
 
 
   //generate token by loggin in the user
@@ -36,17 +48,26 @@ export class LoginService {
 
   }
 
+  refreshToken(){
+    console.log('in refreshtoken api')
+    return this.http.put(`${environment.apiBaseUrl}/refreshtoken`, null ,  this.httpOptions)
+  }
+
   //login user: set token in localStorage
-  public loginUser(token: any){
-    this.authService.setToken(token);
-    localStorage.setItem('token', token);
+  public loginUser(accessToken: any, refreshToken:any){
+    this.authService.setAccessToken(accessToken);
+    localStorage.setItem('accessToken', accessToken);
+
+    this.authService.setRefreshToken(refreshToken);
+    localStorage.setItem('refreshToken', refreshToken);
+
     return true;
   }
 
   //isLogin: user is logged in or not
   public isLoggedIn() {
     // let tokenStr = this.authService.getToken();
-    let tokenStr = localStorage.getItem('token');
+    let tokenStr = localStorage.getItem('accessToken');
     if(tokenStr ==  undefined || tokenStr == '' || tokenStr == null){
       return false;
     } else {
@@ -56,18 +77,25 @@ export class LoginService {
 
   //isLogout: remove token from local Storage
   public logout(){
-    this.authService.setToken(null);
+    this.authService.setAccessToken(null);
+    this.authService.setRefreshToken(null);
     this.authService.setUserData(null);
 
-    localStorage.removeItem('token');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken')
     localStorage.removeItem('user');
     return true;
   }
 
   //get Token : if needed in case.
-  public getToken() {
+  public getAccessToken() {
     // return this.authService.getToken();
-    return localStorage.getItem('token');
+    return localStorage.getItem('accessToken');
+  }
+
+  public getRefreshToken() {
+    // return this.authService.getToken();
+    return localStorage.getItem('refreshToken');
   }
 
   //set userDetail
